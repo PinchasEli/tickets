@@ -1,0 +1,10 @@
+flask
+python-dotenv
+setuptools
+
+Flask-Migrate
+flask-sqlalchemy
+flask_validator 
+psycopg2-binary
+
+pydash
