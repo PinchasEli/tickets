@@ -1,10 +1,11 @@
 flask
 python-dotenv
 setuptools
+requests
+pydash
 
+# DB
 Flask-Migrate
 flask-sqlalchemy
 flask_validator 
 psycopg2-binary
-
-pydash

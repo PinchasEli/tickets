@@ -5,17 +5,9 @@ from . import create_app # from __init__ file
 
 app = create_app(os.getenv("CONFIG_MODE"))
 
-# ----------------------------------------------- #
-
-# Hello World!
-@app.route('/')
-def hello():
-    return "Hello World!"
-
 # Applications Routes
 from .accounts import urls
-
-# ----------------------------------------------- #
+from .weather import urls
 
 if __name__ == "__main__":
     # To Run the Server in Terminal => flask run -h localhost -p 5000

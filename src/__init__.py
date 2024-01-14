@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
 from .config import config
+from .middlewares.response import init_app
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -13,5 +14,6 @@ def create_app(config_mode):
 
     db.init_app(app)
     migrate.init_app(app, db)
+    init_app(app)
 
     return app

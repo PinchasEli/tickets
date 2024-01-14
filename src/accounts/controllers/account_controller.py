@@ -12,50 +12,60 @@ from ..models import Account
 class AccountController:
 
     def list_all_accounts_controller(self):
-        accounts = Account.query.all()
-        response = []
-        for account in accounts:
-            response.append(account.toDict())
+        try:
+            accounts = Account.query.all()
+            response = []
+            for account in accounts:
+                response.append(account.toDict())
 
-        return jsonify(response)
+            return jsonify(response)
+        except Exception as e:
+                return jsonify({'error': f'List all accounts wrong: {e}'}), 400
 
     def create_account_controller(self):
-        request_form = request.form.to_dict()
+        try:
+            request_form = request.form.to_dict()
 
-        id = str(uuid.uuid4())
-        print(request_form)
-        print(id)
-        new_account = Account(
-                            id             = id,
-                            email          = request_form['email'],
-                            username       = request_form['username'],
-                            dob            = request_form['dob'],
-                            country        = request_form['country'],
-                            phone_number   = request_form['phone_number'],
-                            )
-        print(new_account.email)
-        db.session.add(new_account)
-        db.session.commit()
-        print('created')
+            id = str(uuid.uuid4())
+            new_account = Account(
+                                id             = id,
+                                email          = request_form['email'],
+                                username       = request_form['username'],
+                                dob            = request_form['dob'],
+                                country        = request_form['country'],
+                                phone_number   = request_form['phone_number'],
+                                )
+            db.session.add(new_account)
+            db.session.commit()
 
-        response = Account.query.get(id).toDict()
-        return jsonify(response)
+            response = Account.query.get(id).toDict()
+            return jsonify(response)
+        except Exception as e:
+            return jsonify({'error': f'Create account wrong: {e}'}), 400
 
     def retrieve_account_controller(self, account_id):
-        response = Account.query.get(account_id).toDict()
-        return jsonify(response)
+        try:
+            response = Account.query.get(account_id).toDict()
+            return jsonify(response)
+        except Exception as e:
+            return jsonify({'error': 'Account id wrong'}), 400
 
     def update_account_controller(self, account_id):
-        data_update = request.json  # get the data body from req
-        count = Account.query.filter_by(id=account_id).update(data_update)
-        print(count)
-        db.session.commit()
+        try:
+            data_update = request.json  # get the data body from req
+            count = Account.query.filter_by(id=account_id).update(data_update)
+            db.session.commit()
 
-        response = Account.query.get(account_id).toDict()
-        return jsonify(response)
+            response = Account.query.get(account_id).toDict()
+            return jsonify(response)
+        except Exception as e:
+            return jsonify({'error': f'Update account wrong: {e}'}), 400
 
     def delete_account_controller(self, account_id):
-        Account.query.filter_by(id=account_id).delete()
-        db.session.commit()
+        try:
+            Account.query.filter_by(id=account_id).delete()
+            db.session.commit()
 
-        return ('Account with Id "{}" deleted successfully!').format(account_id)
+            return ('Account with Id "{}" deleted successfully!').format(account_id)
+        except Exception as e:
+            return jsonify({'error': f'Delete account wrong: {e}'}), 400
