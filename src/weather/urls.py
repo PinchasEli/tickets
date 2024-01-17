@@ -1,7 +1,7 @@
 from flask import request
 
 from ..app import app
-from .controllers import WeatherController
+from .controllers import WeatherController, HistoryController
 
 
 @app.route("/weather", methods=['GET', 'POST'])
@@ -9,7 +9,16 @@ def weather_search():
     match request.method:
         case 'GET':
             return WeatherController().get_weather_info()
-        # case 'POST': 
+        # case 'POST':
         #     return AccountController().create_account_controller()
-        case _: 
+        case _:
+            return 'Method is Not Allowed'
+
+
+@app.route("/history", methods=['GET'])
+def history():
+    match request.method:
+        case 'GET':
+            return HistoryController().get_list()
+        case _:
             return 'Method is Not Allowed'

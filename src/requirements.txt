@@ -2,10 +2,19 @@ flask
 python-dotenv
 setuptools
 requests
-pydash
+
 
 # DB
 Flask-Migrate
 flask-sqlalchemy
 flask_validator 
+
 psycopg2-binary
+
+# helpers
+pydash
+# pprint
+
+# For Serializing Objects
+marshmallow  
+marshmallow_sqlalchemy

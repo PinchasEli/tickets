@@ -1,7 +1,7 @@
 from sqlalchemy import inspect
 from datetime import datetime
 
-from .. import db # from __init__.py
+from .. import db  # from __init__.py
 
 
 class History(db.Model):
