@@ -1,24 +1,28 @@
 from flask import request
 
 from ..app import app
+
+from ..decorators import token_required
+
 from .controllers import WeatherController, HistoryController
 
 
 @app.route("/weather", methods=['GET', 'POST'])
-def weather_search():
+@token_required
+def weather_search(current_account):
     match request.method:
         case 'GET':
-            return WeatherController().get_weather_info()
-        # case 'POST':
-        #     return AccountController().create_account_controller()
+            return WeatherController().get_weather_info(current_account)
         case _:
             return 'Method is Not Allowed'
 
 
 @app.route("/history", methods=['GET'])
-def history():
+@token_required
+def history(current_account):
+    history_controller = HistoryController()
     match request.method:
         case 'GET':
-            return HistoryController().get_list()
+            return history_controller.get_list(current_account)
         case _:
             return 'Method is Not Allowed'

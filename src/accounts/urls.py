@@ -1,7 +1,7 @@
 from flask import request
 
 from ..app import app
-from .controllers import AccountController
+from .controllers import AccountController, AuthController
 
 
 @app.route("/accounts", methods=['GET', 'POST'])
@@ -24,5 +24,14 @@ def retrieve_update_destroy_accounts(account_id):
             return AccountController().update_account_controller(account_id)
         case 'DELETE': 
             return AccountController().delete_account_controller(account_id)
+        case _: 
+            return 'Method is Not Allowed'
+
+
+@app.route("/accounts/auth", methods=['GET', 'POST'])
+def auth_rest():
+    match request.method:
+        case 'POST': 
+            return AuthController().login()
         case _: 
             return 'Method is Not Allowed'

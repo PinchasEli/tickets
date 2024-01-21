@@ -3,27 +3,25 @@ from datetime import datetime
 from flask_validator import ValidateEmail, ValidateString, ValidateCountry
 from sqlalchemy.orm import validates
 
-from .. import db # from __init__.py
+from .. import db
 
 
-# SQL Datatype Objects => https://docs.sqlalchemy.org/en/14/core/types.html
 class Account(db.Model):
-# Auto Generated Fields:
     id = db.Column(db.String(50), primary_key=True, nullable=False, unique=True)
-    created = db.Column(db.DateTime(timezone=True), default=datetime.now)                           # The Date of the Instance Creation => Created one Time when Instantiation
-    updated = db.Column(db.DateTime(timezone=True), default=datetime.now, onupdate=datetime.now)    # The Date of the Instance Update => Changed with Every Update
+    created = db.Column(db.DateTime(timezone=True), default=datetime.now)
+    updated = db.Column(db.DateTime(timezone=True), default=datetime.now, onupdate=datetime.now)
 
-    # Input by User Fields:
     email = db.Column(db.String(100), nullable=False, unique=True)
     username = db.Column(db.String(100), nullable=False)
     dob = db.Column(db.Date)
     country = db.Column(db.String(100))
     phone_number = db.Column(db.String(20))
+    password = db.Column(db.String(80), nullable=False)
 
     # Validations => https://flask-validator.readthedocs.io/en/latest/index.html
     @classmethod
     def __declare_last__(cls):
-        ValidateEmail(Account.email, True, True, "The email is not valid. Please check it") # True => Allow internationalized addresses, True => Check domain name resolution.
+        ValidateEmail(Account.email, True, True, "The email is not valid. Please check it")
         ValidateString(Account.username, True, True, "The username type must be string")
         ValidateCountry(Account.country, True, True, "The country is not valid")
 

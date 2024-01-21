@@ -4,3 +4,12 @@ https://docs.sqlalchemy.org/en/20/
 
 # tool
 https://pydash.readthedocs.io/en/latest/index.html
+
+
+# prompt - COMMAND DB
+flask db init
+flask db migrate
+flask db upgrade
+
+python -m pip uninstall flask-sqlalchemy
+python -m pip install flask-sqlalchemy

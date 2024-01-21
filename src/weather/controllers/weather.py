@@ -13,12 +13,11 @@ from ..models import History
 
 class WeatherController:
 
-    def get_weather_info(self):
+    def get_weather_info(self, current_account):
         try:
             city = request.args.get('city')
             if not city:
                 raise('City parameter is required')
-                # return jsonify({'error': 'City parameter is required'}), 400
 
             weather_data = Weatherstack().get_weather(city)
             if not weather_data:
@@ -27,6 +26,7 @@ class WeatherController:
                 raise(_.get(weather_data, 'error.info', 'Not found'))
 
             new_history = History(
+                account_id=current_account.id,
                 title=city,
                 details=weather_data,
             )

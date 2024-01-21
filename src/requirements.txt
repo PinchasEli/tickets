@@ -2,7 +2,7 @@ flask
 python-dotenv
 setuptools
 requests
-
+PyJWT  # TOKEN
 
 # DB
 Flask-Migrate

@@ -5,10 +5,6 @@ from ... import db
 from ..models import Account
 
 
-# Query Object Methods => https://docs.sqlalchemy.org/en/14/orm/query.html#sqlalchemy.orm.Query
-# Session Object Methods => https://docs.sqlalchemy.org/en/14/orm/session_api.html#sqlalchemy.orm.Session
-# How to serialize SqlAlchemy PostgreSQL Query to JSON => https://stackoverflow.com/a/46180522
-
 class AccountController:
 
     def list_all_accounts_controller(self):
