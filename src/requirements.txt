@@ -3,6 +3,7 @@ python-dotenv
 setuptools
 requests
 PyJWT  # TOKEN
+flask-cors
 
 # DB
 Flask-Migrate
