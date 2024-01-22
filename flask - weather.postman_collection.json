@@ -1,0 +1,924 @@
+{
+	"info": {
+		"_postman_id": "29425b2c-64d6-4e8a-9b47-3140d494be91",
+		"name": "flask - weather",
+		"description": "# 📄 Get started here\n\nThis template contains a boilerplate for documentation that you can quickly customize and reuse.\n\n## 🔖 How to use this template\n\n- Replace the content given brackets (()) with your API's details.\n- Tips are formatted in `codespan` - feel free to read and remove them.\n    \n\n---\n\n`Start with a brief overview of what your API offers.`\n\nThe ((product name)) provides many API products, tools, and resources that enable you to ((add product value here)).\n\n`You can also list the APIs you offer, link to the relevant pages, or do both in this section.`\n\n## **Getting started guide**\n\n`List the steps or points required to start using your APIs. Make sure to cover everything required to reach success with your API as quickly as possible.`\n\nTo start using the ((add APIs here)), you need to -\n\n`The points given below are from The Postman API's documentation. You can reference it to write your own getting started guide.`\n\n- You must use a valid API Key to send requests to the API endpoints. You can get your API key from Postman's [integrations dashboard](https://go.postman.co/settings/me/api-keys).\n- The API has [rate and usage limits](https://postman.postman.co/workspace/Collection-Templates~6311738d-2e70-441f-ae12-78caf078c5b7/collection/22517504-e9c28f47-1253-44af-a2f3-20dce4da1f18?ctx=documentation#rate-and-usage-limits).\n- The API only responds to HTTPS-secured communications. Any requests sent via HTTP return an HTTP 301 redirect to the corresponding HTTPS resources.\n- The API returns request responses in JSON format. When an API request returns an error, it is sent in the JSON response as an error key.\n    \n\n## Authentication\n\n`Add details on the authorization keys/tokens required, steps that cover how to get them, and the relevant error codes.`\n\nThe ((product name)) API uses ((add your API's authorization type)) for authentication.\n\n`The details given below are from the Postman API's documentation. You can reference it to write your own authentication section.`\n\nPostman uses API keys for authentication. You can generate a Postman API key in the [API keys](https://postman.postman.co/settings/me/api-keys) section of your Postman account settings.\n\nYou must include an API key in each request to the Postman API with the X-Api-Key request header.\n\n### Authentication error response\n\nIf an API key is missing, malformed, or invalid, you will receive an HTTP 401 Unauthorized response code.\n\n## Rate and usage limits\n\n`Use this section to cover your APIs' terms of use. Include API limits, constraints, and relevant error codes, so consumers understand the permitted API usage and practices.`\n\n`The example given below is from The Postman API's documentation. Use it as a reference to write your APIs' terms of use.`\n\nAPI access rate limits apply at a per-API key basis in unit time. The limit is 300 requests per minute. Also, depending on your plan, you may have usage limits. If you exceed either limit, your request will return an HTTP 429 Too Many Requests status code.\n\nEach API response returns the following set of headers to help you identify your use status:\n\n| Header | Description |\n| --- | --- |\n| `X-RateLimit-Limit` | The maximum number of requests that the consumer is permitted to make per minute. |\n| `X-RateLimit-Remaining` | The number of requests remaining in the current rate limit window. |\n| `X-RateLimit-Reset` | The time at which the current rate limit window resets in UTC epoch seconds. |\n\n### 503 response\n\nAn HTTP `503` response from our servers indicates there is an unexpected spike in API access traffic. The server is usually operational within the next five minutes. If the outage persists or you receive any other form of an HTTP `5XX` error, [contact support](https://support.postman.com/hc/en-us/requests/new/).\n\n### **Need some help?**\n\n`Add links that customers can refer to whenever they need help.`\n\nIn case you have questions, go through our tutorials ((link to your video or help documentation here)). Or visit our FAQ page ((link to the relevant page)).\n\nOr you can check out our community forum, there’s a good chance our community has an answer for you. Visit our developer forum ((link to developer forum)) to review topics, ask questions, and learn from others.\n\n`You can also document or add links to libraries, code examples, and other resources needed to make a request.`",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6173686"
+	},
+	"item": [
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Get accounts list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/accounts",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"accounts"
+							]
+						},
+						"description": "Gets information about the authenticated user."
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/me",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"me"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									}
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": {\n        \"id\": 12345678,\n        \"username\": \"taylor-lee\",\n        \"email\": \"taylor.lee@example.com\",\n        \"fullName\": \"Taylor Lee\",\n        \"avatar\": \"https://example.com/user/r5u9qpvmujfjf6lbqmga.jpg\",\n        \"isPublic\": true\n    },\n    \"operations\": [\n        {\n            \"name\": \"mock_usage\",\n            \"limit\": 1000000,\n            \"usage\": 110276,\n            \"overage\": 0\n        },\n        {\n            \"name\": \"monitor_request_runs\",\n            \"limit\": 10000000,\n            \"usage\": 1141750,\n            \"overage\": 0\n        },\n        {\n            \"name\": \"api_usage\",\n            \"limit\": 1000000,\n            \"usage\": 16240,\n            \"overage\": 0\n        },\n        {\n            \"name\": \"custom_domains\",\n            \"limit\": 25,\n            \"usage\": 25,\n            \"overage\": 0\n        },\n        {\n            \"name\": \"serverless_requests\",\n            \"limit\": 10000,\n            \"usage\": 0,\n            \"overage\": 0\n        },\n        {\n            \"name\": \"integrations\",\n            \"limit\": 5000,\n            \"usage\": 1018,\n            \"overage\": 0\n        },\n        {\n            \"name\": \"cloud_agent_requests\",\n            \"limit\": 1000000,\n            \"usage\": 1615,\n            \"overage\": 0\n        }\n    ]\n}"
+						},
+						{
+							"name": "Get authenticated user",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/accounts",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"accounts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.12.1"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jan 2024 21:06:22 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "630"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"country\": \"israel\",\n        \"created\": \"Wed, 10 Jan 2024 19:29:38 GMT\",\n        \"dob\": \"Wed, 04 Jun 1997 00:00:00 GMT\",\n        \"email\": \"ggg@walla.com\",\n        \"id\": \"1a77d142-b8da-4a58-ada3-b40ad9e61db4\",\n        \"phone_number\": \"0542445855\",\n        \"updated\": \"Wed, 10 Jan 2024 19:29:38 GMT\",\n        \"username\": \"1234gg\"\n    },\n    {\n        \"country\": \"israel\",\n        \"created\": \"Thu, 11 Jan 2024 21:03:04 GMT\",\n        \"dob\": \"Wed, 04 Jun 1997 00:00:00 GMT\",\n        \"email\": \"gppg@walla.com\",\n        \"id\": \"4ea38b16-9b5d-48fc-9650-590dd540da92\",\n        \"phone_number\": \"0542445855\",\n        \"updated\": \"Thu, 11 Jan 2024 21:03:04 GMT\",\n        \"username\": \"1234pp\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "create account by form-data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "dob",
+									"value": "04/06/1997",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "0542445855",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "gppg@walla.com",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "1234pp",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "israel",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/accounts",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create account by form-data",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "dob",
+											"value": "04/06/1997",
+											"type": "text"
+										},
+										{
+											"key": "phone_number",
+											"value": "0542445855",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "gppg@walla.com",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "1234pp",
+											"type": "text"
+										},
+										{
+											"key": "country",
+											"value": "israel",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/accounts",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"accounts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.12.1"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jan 2024 21:03:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "293"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"country\": \"israel\",\n    \"created\": \"Thu, 11 Jan 2024 21:03:04 GMT\",\n    \"dob\": \"Wed, 04 Jun 1997 00:00:00 GMT\",\n    \"email\": \"gppg@walla.com\",\n    \"id\": \"4ea38b16-9b5d-48fc-9650-590dd540da92\",\n    \"phone_number\": \"0542445855\",\n    \"updated\": \"Thu, 11 Jan 2024 21:03:04 GMT\",\n    \"username\": \"1234pp\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get account",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/accounts/4ea38b16-9b5d-48fc-9650-590dd540da92",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"accounts",
+								"4ea38b16-9b5d-48fc-9650-590dd540da92"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/accounts/4ea38b16-9b5d-48fc-9650-590dd540da92",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"accounts",
+										"4ea38b16-9b5d-48fc-9650-590dd540da92"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.12.1"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jan 2024 21:23:06 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "293"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"country\": \"israel\",\n    \"created\": \"Thu, 11 Jan 2024 21:03:04 GMT\",\n    \"dob\": \"Wed, 04 Jun 1997 00:00:00 GMT\",\n    \"email\": \"gppg@walla.com\",\n    \"id\": \"4ea38b16-9b5d-48fc-9650-590dd540da92\",\n    \"phone_number\": \"0542445855\",\n    \"updated\": \"Thu, 11 Jan 2024 21:03:04 GMT\",\n    \"username\": \"1234pp\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get user info",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\": \"0544558755\",\r\n    \"country\": \"Italy\",\r\n    \"username\": \"AARR\",\r\n    \"email\": \"EEr@ynet.co.il\",\r\n    \"dob\": \"24 05 1993\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/accounts/4ea38b16-9b5d-48fc-9650-590dd540da92",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"accounts",
+								"4ea38b16-9b5d-48fc-9650-590dd540da92"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"QAARR\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/accounts/auth",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"accounts",
+								"auth"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"QAARR\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/accounts/auth",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"accounts",
+										"auth"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.12.1"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 21 Jan 2024 11:27:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "364"
+								},
+								{
+									"key": "X-API-Middleware",
+									"value": "Response from API middleware!"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"message\": \"Login successful\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNGVhMzhiMTYtOWI1ZC00OGZjLTk2NTAtNTkwZGQ1NDBkYTkyIiwiZXhwIjoxNzA1ODQwMDUzfQ.LkvD8HGeozYm4t_kTLqCOd2P0Lb6LynnIG-4egYWNsY\",\n        \"user\": {\n            \"id\": \"4ea38b16-9b5d-48fc-9650-590dd540da92\",\n            \"username\": \"QAARR\"\n        }\n    },\n    \"status\": \"success\"\n}"
+						}
+					]
+				}
+			],
+			"description": "The `/me` endpoints let you manage information about the authenticated user."
+		},
+		{
+			"name": "history",
+			"item": [
+				{
+					"name": "Get all History",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/history",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"history"
+							],
+							"query": [
+								{
+									"key": "workspace",
+									"value": "{{workspaceId}}",
+									"description": "Optional. A workspace ID.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Gets all of your [collections](https://www.getpostman.com/docs/collections). The response includes all of your subscribed collections."
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections"
+									],
+									"query": [
+										{
+											"key": "workspace",
+											"value": "1f0df51a-8658-4ee8-a2a1-d2567dfa09a9",
+											"description": "Optional. A workspace ID.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									}
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"collections\": [\n        {\n            \"id\": \"dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"name\": \"Cloud API\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2022-04-12T10:29:46.000Z\",\n            \"updatedAt\": \"2022-04-12T10:29:56.000Z\",\n            \"uid\": \"12345678-dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"isPublic\": true\n        },\n        {\n            \"id\": \"12ece9e1-2abf-4edc-8e34-de66e74114d2\",\n            \"name\": \"Test Collection\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2022-01-13T10:21:46.000Z\",\n            \"updatedAt\": \"2022-02-12T11:29:56.000Z\",\n            \"uid\": \"12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\",\n            \"isPublic\": false,\n            \"fork\": {\n                \"label\": \"Test Fork\",\n                \"createdAt\": \"2022-06-16T19:51:44.069Z\",\n                \"from\": \"12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\"\n            }\n        },\n        {\n            \"id\": \"f695cab7-6878-eb55-7943-ad88e1ccfd65\",\n            \"name\": \"Postman Echo\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2021-04-11T09:18:26.000Z\",\n            \"updatedAt\": \"2022-05-01T15:29:32.000Z\",\n            \"uid\": \"12345678-f695cab7-6878-eb55-7943-ad88e1ccfd65\",\n            \"isPublic\": true\n        }\n    ]\n}"
+						},
+						{
+							"name": "Filter by Workspace",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections?workspace=1f0df51a-8658-4ee8-a2a1-d2567dfa09a9",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections"
+									],
+									"query": [
+										{
+											"key": "workspace",
+											"value": "1f0df51a-8658-4ee8-a2a1-d2567dfa09a9",
+											"description": "Optional. A workspace ID."
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									}
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"collections\": [\n        {\n            \"id\": \"dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"name\": \"Cloud API\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2022-04-12T10:29:46.000Z\",\n            \"updatedAt\": \"2022-04-12T10:29:56.000Z\",\n            \"uid\": \"12345678-dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"isPublic\": true\n        }\n    ]\n}"
+						},
+						{
+							"name": "Rate Limit Exceeded",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections"
+									],
+									"query": [
+										{
+											"key": "workspace",
+											"value": "1f0df51a-8658-4ee8-a2a1-d2567dfa09a9",
+											"description": "Optional. A workspace ID.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Too Many Requests",
+							"code": 429,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									}
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"rateLimited\",\n    \"message\": \"Rate limit exceeded. Please retry after 1669048687\"\n}"
+						},
+						{
+							"name": "Get all collections",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNGVhMzhiMTYtOWI1ZC00OGZjLTk2NTAtNTkwZGQ1NDBkYTkyIiwiZXhwIjoxNzA1ODQwMDUzfQ.LkvD8HGeozYm4t_kTLqCOd2P0Lb6LynnIG-4egYWNsY",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/history",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"history"
+									],
+									"query": [
+										{
+											"key": "workspace",
+											"value": "{{workspaceId}}",
+											"description": "Optional. A workspace ID.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.12.1"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 21 Jan 2024 11:27:44 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "8688"
+								},
+								{
+									"key": "X-API-Middleware",
+									"value": "Response from API middleware!"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"created_at\": \"2024-01-14T13:13:21.756968\",\n            \"details\": {\n                \"current\": {\n                    \"cloudcover\": 25,\n                    \"feelslike\": 2,\n                    \"humidity\": 75,\n                    \"is_day\": \"yes\",\n                    \"observation_time\": \"01:12 PM\",\n                    \"precip\": 0,\n                    \"pressure\": 1012,\n                    \"temperature\": 5,\n                    \"uv_index\": 3,\n                    \"visibility\": 10,\n                    \"weather_code\": 116,\n                    \"weather_descriptions\": [\n                        \"Partly cloudy\"\n                    ],\n                    \"weather_icons\": [\n                        \"https://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0002_sunny_intervals.png\"\n                    ],\n                    \"wind_degree\": 320,\n                    \"wind_dir\": \"NW\",\n                    \"wind_speed\": 19\n                },\n                \"location\": {\n                    \"country\": \"United Kingdom\",\n                    \"lat\": \"51.517\",\n                    \"localtime\": \"2024-01-14 13:12\",\n                    \"localtime_epoch\": 1705237920,\n                    \"lon\": \"-0.106\",\n                    \"name\": \"London\",\n                    \"region\": \"City of London, Greater London\",\n                    \"timezone_id\": \"Europe/London\",\n                    \"utc_offset\": \"0.0\"\n                },\n                \"request\": {\n                    \"language\": \"en\",\n                    \"query\": \"London, United Kingdom\",\n                    \"type\": \"City\",\n                    \"unit\": \"m\"\n                }\n            },\n            \"id\": 1,\n            \"title\": \"London\"\n        },\n        {\n            \"created_at\": \"2024-01-14T15:00:31.831831\",\n            \"details\": {\n                \"current\": {\n                    \"cloudcover\": 25,\n                    \"feelslike\": 17,\n                    \"humidity\": 59,\n                    \"is_day\": \"no\",\n                    \"observation_time\": \"02:59 PM\",\n                    \"precip\": 0,\n                    \"pressure\": 1016,\n                    \"temperature\": 17,\n                    \"uv_index\": 4,\n                    \"visibility\": 10,\n                    \"weather_code\": 116,\n                    \"weather_descriptions\": [\n                        \"Partly cloudy\"\n                    ],\n                    \"weather_icons\": [\n                        \"https://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0004_black_low_cloud.png\"\n                    ],\n                    \"wind_degree\": 230,\n                    \"wind_dir\": \"SW\",\n                    \"wind_speed\": 11\n                },\n                \"location\": {\n                    \"country\": \"Israel\",\n                    \"lat\": \"32.068\",\n                    \"localtime\": \"2024-01-14 16:59\",\n                    \"localtime_epoch\": 1705251540,\n                    \"lon\": \"34.765\",\n                    \"name\": \"Tel Aviv-Yafo\",\n                    \"region\": \"Tel Aviv\",\n                    \"timezone_id\": \"Asia/Jerusalem\",\n                    \"utc_offset\": \"2.0\"\n                },\n                \"request\": {\n                    \"language\": \"en\",\n                    \"query\": \"Tel Aviv-Yafo, Israel\",\n                    \"type\": \"City\",\n                    \"unit\": \"m\"\n                }\n            },\n            \"id\": 2,\n            \"title\": \"Tel Aviv\"\n        },\n        {\n            \"created_at\": \"2024-01-14T15:00:51.593843\",\n            \"details\": {\n                \"current\": {\n                    \"cloudcover\": 25,\n                    \"feelslike\": 17,\n                    \"humidity\": 59,\n                    \"is_day\": \"no\",\n                    \"observation_time\": \"03:00 PM\",\n                    \"precip\": 0,\n                    \"pressure\": 1016,\n                    \"temperature\": 17,\n                    \"uv_index\": 1,\n                    \"visibility\": 10,\n                    \"weather_code\": 116,\n                    \"weather_descriptions\": [\n                        \"Partly cloudy\"\n                    ],\n                    \"weather_icons\": [\n                        \"https://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0004_black_low_cloud.png\"\n                    ],\n                    \"wind_degree\": 230,\n                    \"wind_dir\": \"SW\",\n                    \"wind_speed\": 11\n                },\n                \"location\": {\n                    \"country\": \"Israel\",\n                    \"lat\": \"32.122\",\n                    \"localtime\": \"2024-01-14 17:00\",\n                    \"localtime_epoch\": 1705251600,\n                    \"lon\": \"34.815\",\n                    \"name\": \"Tel Baruch\",\n                    \"region\": \"Tel Aviv\",\n                    \"timezone_id\": \"Asia/Jerusalem\",\n                    \"utc_offset\": \"2.0\"\n                },\n                \"request\": {\n                    \"language\": \"en\",\n                    \"query\": \"Tel Baruch, Israel\",\n                    \"type\": \"City\",\n                    \"unit\": \"m\"\n                }\n            },\n            \"id\": 3,\n            \"title\": \"Tel Avivvv\"\n        },\n        {\n            \"created_at\": \"2024-01-14T15:01:10.176067\",\n            \"details\": {\n                \"error\": {\n                    \"code\": 615,\n                    \"info\": \"Your API request failed. Please try again or contact support.\",\n                    \"type\": \"request_failed\"\n                },\n                \"success\": false\n            },\n            \"id\": 4,\n            \"title\": \"ghjsdhf\"\n        },\n        {\n            \"created_at\": \"2024-01-14T15:02:06.647954\",\n            \"details\": {\n                \"error\": {\n                    \"code\": 615,\n                    \"info\": \"Your API request failed. Please try again or contact support.\",\n                    \"type\": \"request_failed\"\n                },\n                \"success\": false\n            },\n            \"id\": 5,\n            \"title\": \"ghjsdhf\"\n        },\n        {\n            \"created_at\": \"2024-01-14T15:06:14.968622\",\n            \"details\": {\n                \"error\": {\n                    \"code\": 615,\n                    \"info\": \"Your API request failed. Please try again or contact support.\",\n                    \"type\": \"request_failed\"\n                },\n                \"success\": false\n            },\n            \"id\": 6,\n            \"title\": \"ghjsdhf\"\n        },\n        {\n            \"created_at\": \"2024-01-14T15:09:09.278032\",\n            \"details\": {\n                \"current\": {\n                    \"cloudcover\": 25,\n                    \"feelslike\": 17,\n                    \"humidity\": 59,\n                    \"is_day\": \"no\",\n                    \"observation_time\": \"03:08 PM\",\n                    \"precip\": 0,\n                    \"pressure\": 1016,\n                    \"temperature\": 17,\n                    \"uv_index\": 1,\n                    \"visibility\": 10,\n                    \"weather_code\": 116,\n                    \"weather_descriptions\": [\n                        \"Partly cloudy\"\n                    ],\n                    \"weather_icons\": [\n                        \"https://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0004_black_low_cloud.png\"\n                    ],\n                    \"wind_degree\": 230,\n                    \"wind_dir\": \"SW\",\n                    \"wind_speed\": 11\n                },\n                \"location\": {\n                    \"country\": \"Israel\",\n                    \"lat\": \"31.780\",\n                    \"localtime\": \"2024-01-14 17:08\",\n                    \"localtime_epoch\": 1705252080,\n                    \"lon\": \"35.230\",\n                    \"name\": \"Jerusalem\",\n                    \"region\": \"Yerushalayim\",\n                    \"timezone_id\": \"Asia/Jerusalem\",\n                    \"utc_offset\": \"2.0\"\n                },\n                \"request\": {\n                    \"language\": \"en\",\n                    \"query\": \"Jerusalem, Israel\",\n                    \"type\": \"City\",\n                    \"unit\": \"m\"\n                }\n            },\n            \"id\": 7,\n            \"title\": \"Jerusalem\"\n        },\n        {\n            \"created_at\": \"2024-01-21T11:25:47.762041\",\n            \"details\": {\n                \"current\": {\n                    \"cloudcover\": 0,\n                    \"feelslike\": 24,\n                    \"humidity\": 36,\n                    \"is_day\": \"yes\",\n                    \"observation_time\": \"11:25 AM\",\n                    \"precip\": 0,\n                    \"pressure\": 1016,\n                    \"temperature\": 23,\n                    \"uv_index\": 5,\n                    \"visibility\": 10,\n                    \"weather_code\": 113,\n                    \"weather_descriptions\": [\n                        \"Sunny\"\n                    ],\n                    \"weather_icons\": [\n                        \"https://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0001_sunny.png\"\n                    ],\n                    \"wind_degree\": 198,\n                    \"wind_dir\": \"SSW\",\n                    \"wind_speed\": 4\n                },\n                \"location\": {\n                    \"country\": \"Israel\",\n                    \"lat\": \"31.780\",\n                    \"localtime\": \"2024-01-21 13:25\",\n                    \"localtime_epoch\": 1705843500,\n                    \"lon\": \"35.230\",\n                    \"name\": \"Jerusalem\",\n                    \"region\": \"Yerushalayim\",\n                    \"timezone_id\": \"Asia/Jerusalem\",\n                    \"utc_offset\": \"2.0\"\n                },\n                \"request\": {\n                    \"language\": \"en\",\n                    \"query\": \"Jerusalem, Israel\",\n                    \"type\": \"City\",\n                    \"unit\": \"m\"\n                }\n            },\n            \"id\": 8,\n            \"title\": \"Jerusalem\"\n        },\n        {\n            \"created_at\": \"2024-01-21T11:26:24.418865\",\n            \"details\": {\n                \"current\": {\n                    \"cloudcover\": 0,\n                    \"feelslike\": 24,\n                    \"humidity\": 36,\n                    \"is_day\": \"yes\",\n                    \"observation_time\": \"11:25 AM\",\n                    \"precip\": 0,\n                    \"pressure\": 1016,\n                    \"temperature\": 23,\n                    \"uv_index\": 5,\n                    \"visibility\": 10,\n                    \"weather_code\": 113,\n                    \"weather_descriptions\": [\n                        \"Sunny\"\n                    ],\n                    \"weather_icons\": [\n                        \"https://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0001_sunny.png\"\n                    ],\n                    \"wind_degree\": 198,\n                    \"wind_dir\": \"SSW\",\n                    \"wind_speed\": 4\n                },\n                \"location\": {\n                    \"country\": \"Israel\",\n                    \"lat\": \"31.800\",\n                    \"localtime\": \"2024-01-21 13:25\",\n                    \"localtime_epoch\": 1705843500,\n                    \"lon\": \"35.233\",\n                    \"name\": \"Newe Yaacov\",\n                    \"region\": \"Yerushalayim\",\n                    \"timezone_id\": \"Asia/Jerusalem\",\n                    \"utc_offset\": \"2.0\"\n                },\n                \"request\": {\n                    \"language\": \"en\",\n                    \"query\": \"Newe Yaacov, Israel\",\n                    \"type\": \"City\",\n                    \"unit\": \"m\"\n                }\n            },\n            \"id\": 9,\n            \"title\": \"Kochav Yaacov\"\n        }\n    ],\n    \"status\": \"success\"\n}"
+						}
+					]
+				}
+			],
+			"description": "The `/collections` endpoints let you manage your [collections](https://learning.postman.com/docs/sending-requests/intro-to-collections/)."
+		},
+		{
+			"name": "search",
+			"item": [
+				{
+					"name": "Get a collection",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.getpostman.com/collections/{{collectionId}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"getpostman",
+								"com"
+							],
+							"path": [
+								"collections",
+								"{{collectionId}}"
+							],
+							"query": [
+								{
+									"key": "access_key",
+									"value": "{{accessKey}}",
+									"description": "Optional. A collection's read-only access key. Using this query parameter does not require an API key to call the endpoint.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Gets information about a collection. For a complete list of this endpoint's possible values, use the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json)."
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections/12ece9e1-2abf-4edc-8e34-de66e74114d2",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections",
+										"12ece9e1-2abf-4edc-8e34-de66e74114d2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									}
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"collection\": {\n        \"info\": {\n            \"name\": \"Test Collection\",\n            \"description\": \"This is a test collection that makes a tiny request to Postman Echo service to get the list of request headers sent by a HTTP client.\",\n            \"_postman_id\": \"12ece9e1-2abf-4edc-8e34-de66e74114d2\",\n            \"schema\": \"https://schema.getpostman.com/json/collection/v2.0.0/collection.json\",\n            \"updatedAt\": \"2022-06-16T20:21:13.000Z\",\n            \"fork\": {\n                \"label\": \"Test Fork\",\n                \"createdAt\": \"2022-06-16T19:51:44.069Z\",\n                \"from\": \"12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\"\n            }\n        },\n        \"item\": [\n            {\n                \"name\": \"Test GET Response\",\n                \"id\": \"82ee981b-e19f-962a-401e-ea34ebfb4848\",\n                \"event\": [\n                    {\n                        \"listen\": \"test\",\n                        \"script\": {\n                            \"id\": \"7d2334fc-a84a-4c3d-b26c-7529afa4c0ae\",\n                            \"exec\": [\n                                \"pm.test(\\\"Status code is 200\\\", function () {\",\n                                \"    pm.response.to.have.status(200);\",\n                                \"});\"\n                            ],\n                            \"type\": \"text/javascript\"\n                        }\n                    }\n                ],\n                \"request\": {\n                    \"url\": \"https://echo.getpostman.com/headers\",\n                    \"method\": \"GET\",\n                    \"header\": [\n                        {\n                            \"key\": \"Content-Type\",\n                            \"value\": \"application/json\"\n                        }\n                    ]\n                },\n                \"response\": []\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "Get Collection with Access Token",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections/12ece9e1-2abf-4edc-8e34-de66e74114d2?access_key={{accessKey}}",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections",
+										"12ece9e1-2abf-4edc-8e34-de66e74114d2"
+									],
+									"query": [
+										{
+											"key": "access_key",
+											"value": "{{accessKey}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									}
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"collection\": {\n        \"info\": {\n            \"name\": \"Test Collection\",\n            \"description\": \"This is a test collection that makes a tiny request to Postman Echo service to get the list of request headers sent by a HTTP client.\",\n            \"_postman_id\": \"12ece9e1-2abf-4edc-8e34-de66e74114d2\",\n            \"schema\": \"https://schema.getpostman.com/json/collection/v2.0.0/collection.json\",\n            \"updatedAt\": \"2022-06-16T20:21:13.000Z\",\n            \"fork\": {\n                \"label\": \"Test Fork\",\n                \"createdAt\": \"2022-06-16T19:51:44.069Z\",\n                \"from\": \"12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\"\n            }\n        },\n        \"item\": [\n            {\n                \"name\": \"Test GET Response\",\n                \"id\": \"82ee981b-e19f-962a-401e-ea34ebfb4848\",\n                \"event\": [\n                    {\n                        \"listen\": \"test\",\n                        \"script\": {\n                            \"id\": \"7d2334fc-a84a-4c3d-b26c-7529afa4c0ae\",\n                            \"exec\": [\n                                \"pm.test(\\\"Status code is 200\\\", function () {\",\n                                \"    pm.response.to.have.status(200);\",\n                                \"});\"\n                            ],\n                            \"type\": \"text/javascript\"\n                        }\n                    }\n                ],\n                \"request\": {\n                    \"url\": \"https://echo.getpostman.com/headers\",\n                    \"method\": \"GET\",\n                    \"header\": [\n                        {\n                            \"key\": \"Content-Type\",\n                            \"value\": \"application/json\"\n                        }\n                    ]\n                },\n                \"response\": []\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections/12ece9e1-2abf-4edc-8e34-de66e74114d2",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections",
+										"12ece9e1-2abf-4edc-8e34-de66e74114d2"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"error\": {\n        \"name\": \"instanceNotFoundError\",\n        \"message\": \"We could not find the collection you are looking for\"\n    }\n}"
+						},
+						{
+							"name": "Rate Limit Exceeded",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections/12ece9e1-2abf-4edc-8e34-de66e74114d2",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections",
+										"12ece9e1-2abf-4edc-8e34-de66e74114d2"
+									]
+								}
+							},
+							"status": "Too Many Requests",
+							"code": 429,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"error\": \"rateLimited\",\n    \"message\": \"Rate limit exceeded. Please retry after 1669048687\"\n}"
+						}
+					]
+				}
+			],
+			"description": "The `/collections` endpoints let you manage your [collections](https://learning.postman.com/docs/sending-requests/intro-to-collections/)."
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "X-API-Key",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://farming-simulator.pstmn.io"
+		}
+	]
+}
