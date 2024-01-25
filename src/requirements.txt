@@ -8,6 +8,9 @@ flask-cors
 # DB
 Flask-Migrate
 flask-sqlalchemy
+# python -m pip uninstall flask-sqlalchemy
+# python -m pip install flask-sqlalchemy
+
 flask_validator 
 
 psycopg2-binary
